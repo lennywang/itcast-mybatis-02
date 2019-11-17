@@ -5,9 +5,10 @@ import org.springframework.util.StringUtils;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
- *
+ * User
  **/
 public class User implements Serializable {
     private static final String NONE = "无";
@@ -18,6 +19,7 @@ public class User implements Serializable {
     private Date birthday;// 生日
     private String address;// 地址
 
+    private List<Order> orderList;
 
     public Integer getId() {
         return id;
@@ -59,6 +61,14 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
     @Override
     public String toString() {
         username = StringUtils.isEmpty(username) ? NONE : username;
@@ -72,6 +82,22 @@ public class User implements Serializable {
                 ", sex='" + sex + '\'' +
                 ", birthday=" + date +
                 ", address='" + address + '\'' +
+                ", orderList=" + orderList +
                 '}';
     }
+
+    //    public String toString() {
+//        username = StringUtils.isEmpty(username) ? NONE : username;
+//        sex = StringUtils.isEmpty(sex) ? NONE : sex;
+//        // 获得SimpleDateFormat类
+//        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+//        String date = sf.format(birthday);
+//        return "User{" +
+//                "id=" + id +
+//                ", username='" + username + '\'' +
+//                ", sex='" + sex + '\'' +
+//                ", birthday=" + date +
+//                ", address='" + address + '\'' +
+//                '}';
+//    }
 }
